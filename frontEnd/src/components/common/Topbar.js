@@ -86,13 +86,30 @@ function Topbar(props) {
         </div>
         <div className="ms-auto">
 
-          <i className="las la-bell" onClick={handleToggle}>
+
+          <div style={{ position: 'relative', display: 'inline-block', marginTop: '15px' }}>
+            <i className="las la-bell"
+              style={{ fontSize: '40px', color: 'black' }}
+              onClick={handleToggle}
+            >
+            </i>
             {notificationCount > 0 && (
-              <span className="">
+              <span
+                style={{
+                  position: 'absolute',
+                  top: '-5px',
+                  right: '-5px',
+                  backgroundColor: '#ff4d4d',
+                  borderRadius: '50%',
+                  color: 'white',
+                  padding: '5px 8px',
+                  fontSize: '12px',
+                }}
+              >
                 {notificationCount}
               </span>
             )}
-          </i>
+          </div>
 
           <Modal
             show={showData}

@@ -9,6 +9,8 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors({
    origin: ["http://localhost:3001"],
    methods: ['GET', 'POST', 'PUT', "DELETE"],
@@ -21,6 +23,6 @@ app.use('/auth', adminRouter);
 app.use(express.static('Public'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.listen(3000, () => {
-   console.log("Server is running");
+app.listen(PORT, () => {
+   console.log(`Server is running on port ${PORT}`);
 });
