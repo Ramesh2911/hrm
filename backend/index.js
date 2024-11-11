@@ -14,7 +14,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({
    origin: ["https://hrm-wews.vercel.app/"],
    methods: ['GET', 'POST', 'PUT', "DELETE"],
-   credentials: true
+   credentials: true,
+   allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
+    exposedHeaders: ["Authorization"]
 }));
 app.options('*', cors());
 app.use(express.json());
